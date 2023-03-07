@@ -30,5 +30,11 @@ describe('todo loader service', ()=> {
     const response = await sut.load()
     expect(response[0].title).toBe('cache_test')
   })
-  
+  test('should not return cache if dont have a cache', async () => {
+    const { cacheTodoRepository, loadTodoRepository } = mocks()
+    const sut = new TodoLoaderService(loadTodoRepository, cacheTodoRepository)
+    jest.spyOn(cacheTodoRepository, 'cache').mockResolvedValue(null)
+    const response = await sut.load()
+    expect(response[0].title).toBe('test')
+  })
 })

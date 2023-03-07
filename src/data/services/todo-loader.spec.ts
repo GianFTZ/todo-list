@@ -1,18 +1,18 @@
-import { Todo } from "src/domain/entities/todo"
 import { ILoadTodoRepository, ICacheTodoRepository } from "../contracts"
+import { TodoModel } from "../models/todo"
 import { TodoLoaderService } from "./todo-loader"
 
 const mocks = () => {
   class LoadTodoRepositoryMock implements ILoadTodoRepository {
-    async loadTodo(): Promise<Todo[]> {
-      return new Promise<Todo[]>((resolve) => {
+    async loadTodo(): Promise<TodoModel[]> {
+      return new Promise<TodoModel[]>((resolve) => {
         resolve([{ title: 'test', createAt: new Date, longDesc: 'valid_long_desc', shortDesc: 'valid_short_desc' ,deleteAt: new Date(), updateAt: new Date() }])
       })
     }
   }
   class CacheTodoRepositoryMock implements ICacheTodoRepository {
-    async cache (): Promise<Todo[] | null> {
-      return new Promise<Todo[]>((resolve) => {
+    async cache (): Promise<TodoModel[] | null> {
+      return new Promise<TodoModel[]>((resolve) => {
         resolve([{ title: 'cache_test', createAt: new Date, longDesc: 'valid_long_desc', shortDesc: 'valid_short_desc' ,deleteAt: new Date(), updateAt: new Date() }])
       })
     }

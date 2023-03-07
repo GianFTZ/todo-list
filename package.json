@@ -14,5 +14,8 @@
   },
   "scripts": {
     "test": "jest --watch"
+  },
+  "dependencies": {
+    "prisma": "^4.11.0"
   }
 }

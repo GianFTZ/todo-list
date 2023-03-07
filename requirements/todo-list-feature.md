@@ -9,6 +9,7 @@
 - O usuário só deve ser capaz de interagir com as tarefas criadas por ele mesmo.
 - Uma tarefa deve ser armazenada em um banco de dados.
 - Uma tarefa deve ser armazenada em cache por 1 hora para depois ser armazenada em um banco de dados.
+- Após deletar uma tarefa ela ainda ficará em cache por 1 hora.
 
 
 # Quem vai usar essa API?

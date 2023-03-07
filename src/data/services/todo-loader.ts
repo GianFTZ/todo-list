@@ -8,6 +8,10 @@ export class TodoLoaderService implements ITodoLoader {
     private readonly cacheTodoRepository: ICacheTodoRepository
   ){}
   async load (): Promise<Todo[]> {
+    let cache = await this.cacheTodoRepository.cache()
+    if(cache) {
+      return cache
+    }
     return this.loadTodoRepository.loadTodo()
   }
 }

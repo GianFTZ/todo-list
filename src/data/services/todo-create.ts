@@ -5,7 +5,7 @@ import { ICreateTodoRepository } from "../contracts/create-todo-repository";
 export class TodoCreateService implements ITodoCreater {
   constructor(private readonly createTodoRepository: ICreateTodoRepository){}
 
-  async create(todo: Todo): Promise<Todo>{
+  async create(todo: Todo): Promise<Todo | Error>{
     return this.createTodoRepository.create(todo)
   }
 }

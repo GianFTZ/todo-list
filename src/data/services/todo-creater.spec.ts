@@ -26,5 +26,11 @@ describe('todo create service', ()=> {
     expect(spy).toHaveBeenCalled()
   })
 
-  
+  test('should create todo with the correct values', async () => {
+    const fakeData: TodoModel = { title: 'test', createAt: new Date, longDesc: 'valid_long_desc', shortDesc: 'valid_short_desc' ,deleteAt: new Date(), updateAt: new Date() }
+    const { createTodoRepositoryMock } = mocks()
+    const sut = new TodoCreateService(createTodoRepositoryMock)
+    const response = await sut.create(fakeData)
+    expect(response).toEqual(fakeData)
+  })
 })

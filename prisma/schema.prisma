@@ -10,11 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id Int @id @default(autoincrement()) 
+  username String
+  password String
+  todos Todo[]
+}
+
 model Todo {
   id Int @id @default(autoincrement())
+  done Boolean
   title String
-  shortDesc String
+  shortDesc String  
   longDesc String
+  createBy User @relation(fields: [authorId], references: [id])
+  authorId Int 
   createAt DateTime
   updateAt DateTime
   deleteAt DateTime

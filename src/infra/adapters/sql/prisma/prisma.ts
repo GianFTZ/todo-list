@@ -2,6 +2,7 @@ import { ServerError } from "../../../../utils/errors/server-error";
 import prisma from '../../../../utils/prisma/connection'
 import type { Todo } from '@prisma/client'
 import { TodoModel } from "src/data/models/todo";
+import { UpdateDto } from "./protocols/update";
 
 export class Prisma {
   async loadAllTodo(): Promise<Todo[] | Error> {
@@ -40,6 +41,19 @@ export class Prisma {
       prismaRepoMock = []
       return response
     } catch(error) {
+      return new ServerError(error)
+    }
+  }
+  async updateTodo(todoId: number): Promise<Todo | Error> {
+    try {
+      
+      // let prismaResponse = await prisma.todo.update({
+      //   where: {
+      //     id: todoId
+      //   },
+      //   data: object
+      // })
+    } catch (error) {
       return new ServerError(error)
     }
   }

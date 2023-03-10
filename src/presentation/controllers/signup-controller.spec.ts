@@ -100,7 +100,7 @@ describe('signup controller', () => {
     expect(spy).toHaveBeenCalledWith(fakeData.body)
   })
 
-  test('should return name if everything is okay by creating new user', async () => {
+  test('should return name if everything is okay by creating new user.', async () => {
     const fakeData = {  
       body: {
         name: 'valid_name',

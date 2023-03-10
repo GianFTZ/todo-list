@@ -8,8 +8,6 @@
 - Erros devem ser tratados
 - O usuário só deve ser capaz de interagir com as tarefas criadas por ele mesmo.
 - Uma tarefa deve ser armazenada em um banco de dados.
-- Uma tarefa deve ser armazenada em cache por 1 hora para depois ser armazenada em um banco de dados.
-- Após deletar uma tarefa ela ainda ficará em cache por 1 hora.
 
 
 # Quem vai usar essa API?
@@ -19,3 +17,6 @@ Temos algumas telas onde essa API pode ser usada:
 - Uma versão simplificada de todas as tarefas cadastradas pelo usuário.
 
 - Quando o usuário clicar em uma tarefa deve ser possivel ver os detalhes da mesma.
+
+
+# Lembrar de tirar o stub do create todo e do delete todo

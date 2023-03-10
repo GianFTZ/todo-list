@@ -46,6 +46,13 @@ export class Prisma {
       return new ServerError(error)
     }
   }
+  async deleteTodoStub(todoId: number): Promise<number | Error> {
+    try {
+      return todoId
+    } catch (error) {
+      return new ServerError(error)
+    }
+  }
   async createTodoStub(todo: TodoModel): Promise<Todo | Error> {
     try {
       let prismaRepoMock = []

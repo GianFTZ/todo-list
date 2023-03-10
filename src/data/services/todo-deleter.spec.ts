@@ -25,11 +25,11 @@ describe('todo deleter service', ()=> {
     expect(spy).toHaveBeenCalled()
   })
 
-  // test('should create todo with the correct values', async () => {
-  //   const fakeData: TodoModel = { title: 'test', createAt: new Date, longDesc: 'valid_long_desc', shortDesc: 'valid_short_desc' ,deleteAt: new Date(), updateAt: new Date() }
-  //   const { deleteTodoRepositoryMock: createTodoRepositoryMock } = mocks()
-  //   const sut = new TodoCreateService(createTodoRepositoryMock)
-  //   const response = await sut.create(fakeData)
-  //   expect(response).toEqual(fakeData)
-  // })
+  test('should delete todo with the correct values', async () => {
+    const fakeData: number = 1
+    const { deleteTodoRepositoryMock } = mocks()
+    const sut = new TodoDeleterService(deleteTodoRepositoryMock)
+    const response = await sut.delete(fakeData)
+    expect(response).toEqual(fakeData)
+  })
 })

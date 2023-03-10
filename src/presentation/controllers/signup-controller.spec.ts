@@ -112,4 +112,17 @@ describe('signup controller', () => {
     const response = await sut.handle(fakeData)
     expect(response.body.name).toBe(fakeData.body.name)
   })
+
+  test('should return 200 if everything is okay by creating new user.', async () => {
+    const fakeData = {  
+      body: {
+        name: 'valid_name',
+        username: 'valid_username',
+        password: 'valid_password',
+      }
+    }
+    const { sut } = makeSut()
+    const response = await sut.handle(fakeData)
+    expect(response.status).toBe(200)
+  })
 })

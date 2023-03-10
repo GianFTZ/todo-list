@@ -7,6 +7,12 @@ import { UserCreateDto } from "../adapters/sql/prisma/protocols/user-create-dto"
 export class CreateUserRepository implements IUserCreaterRepository {
   async create (user: UserCreateDto): Promise<UserModel | Error> {
     try {
+      const requiredFields = ['username', 'password']
+      for(const field of requiredFields) {
+        if(!user[field]){
+          throw new Error(`misssing property ${field}`)
+        }
+      }
       const prisma = new Prisma()
       const response = await prisma.createUser(user)
       return {

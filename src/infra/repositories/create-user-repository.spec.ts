@@ -11,4 +11,14 @@ describe('create user repository', ()=> {
     const response = await sut.create(fakeData)
     expect(response.name).toBe('valid_username')
   })
+
+  test('should throw an error if one of required fields is missing', async () => {
+    const fakeData = {
+      username: 'valid_username',
+    }
+    const sut = new CreateUserRepository()
+    // @ts-ignore
+    const response = await sut.create(fakeData)
+    expect(response instanceof Error).toBe(true)
+  })
 })

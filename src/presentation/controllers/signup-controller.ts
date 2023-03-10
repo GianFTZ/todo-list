@@ -1,3 +1,4 @@
+import { missingParam } from "../../utils/helpers/missing-param-helper"
 import { IController } from "./contracts/controller";
 import { Http } from "./contracts/http";
 
@@ -12,12 +13,9 @@ import { Http } from "./contracts/http";
 export class SignupController implements IController {
   async handle(req: Http.Request): Promise<Http.Response> {
     const requiredFields = ["username", "name", "password"]
-    for(const fields of requiredFields){
-      if(!req.body[fields]){
-        return {
-          body: 'missing properties',
-          status: 400
-        }
+    for(const field of requiredFields){
+      if(!req.body[field]){
+        return missingParam(field)
       }
     }
     return {

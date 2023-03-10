@@ -19,12 +19,12 @@ model User {
 
 model Todo {
   id Int @id @default(autoincrement())
-  done Boolean
+  done Boolean @default(true)
   title String
-  shortDesc String  
+  shortDesc String
   longDesc String
   createBy User @relation(fields: [authorId], references: [id])
-  authorId Int 
+  authorId Int @default(-1)
   createAt DateTime
   updateAt DateTime
   deleteAt DateTime

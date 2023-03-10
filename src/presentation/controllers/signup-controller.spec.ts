@@ -21,4 +21,15 @@ describe('signup controller', () => {
     await sut.handle(fakeData)
     expect(spy).toHaveBeenLastCalledWith(fakeData)
   })
+  test('should return 400 if no password is provided', async () => {
+    const fakeData = {
+      body: {
+        username: 'valid_username',
+        name: 'valid_name',
+      }
+    }
+    const { sut } = makeSut()
+    const response = await sut.handle(fakeData)
+    expect(response.status).toBe(400)
+  })
 })
